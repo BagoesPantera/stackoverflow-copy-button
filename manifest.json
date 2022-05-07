@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "StackOverflow Copy Button",
+    "version": "1.0",
+
+    "author": "SAKUNOKI",
+    "description": "A copy button for stackoverflow",
+    "icons": {
+        "48": "icons/48.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["https://stackoverflow.com/questions/*"],
+            "js": ["content.js"]
+        }
+    ],
+
+    "action":{
+        "default_title": "StackOverflow Copy Button",
+        "default_icon": {
+            "48": "icons/48.png"
+        },
+        "default_popup": "popup/popup.html"
+    },
+
+    "permissions": [
+        "tabs", 
+        "storage", 
+        "activeTab", 
+        "clipboardWrite"
+    ],
+    "host_permissions": [
+        "https://stackoverflow.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
